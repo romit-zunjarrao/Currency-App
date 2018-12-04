@@ -7,6 +7,30 @@
 </ion-header>
 
 <ion-content padding>
-  The world is your oyster.
-  <p>If you get lost, the <a target="_blank" rel="noopener" href="https://ionicframework.com/docs">docs</a> will be your guide.</p>
+    <ion-spinner name="lines" *ngIf="dataService.data==null"></ion-spinner>
+    <ion-list>
+        <ion-list-header>
+            <ion-item>
+                <ion-label>Base : </ion-label>
+                <ion-select value="USD" ok-text="Okay" cancel-text="Dismiss"  (ionChange)="onChange($event)">
+                  
+                <div *ngFor="let iterate of dataService.rates | keyvalue">
+                  <ion-select-option value="{{iterate.key}}">{{iterate.key}}</ion-select-option>
+                  
+                </div>  
+                </ion-select>
+              </ion-item>
+        </ion-list-header>
+        <ion-list-header>
+            <b>Date : {{dataService.data?.date}}</b>
+         </ion-list-header>
+        <ion-item *ngFor="let iterate of dataService.rates | keyvalue">
+            <ion-thumbnail item-start>
+                <ion-img src="../../assets/images/{{iterate.key}}.png" with="100px" height="100px"></ion-img>
+            </ion-thumbnail> 
+          <ion-label >
+            <h2><b>{{iterate.key}} : {{iterate.value}}</b></h2>
+          </ion-label>
+        </ion-item>
+    </ion-list>
 </ion-content>
