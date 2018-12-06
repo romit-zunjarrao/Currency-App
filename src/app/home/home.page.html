@@ -1,34 +1,35 @@
 <ion-header>
-  <ion-toolbar>
+  <ion-toolbar  class="toolbar">
     <ion-title>
-      Ionic Blank
+      Foreign Exchange Rate
     </ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content padding>
+<ion-content  class="check">
     <ion-spinner name="lines" *ngIf="dataService.data==null"></ion-spinner>
-    <ion-list>
+    <ion-list padding>
         <ion-list-header>
             <ion-item>
                 <ion-label>Base : </ion-label>
-                <ion-select value="USD" ok-text="Okay" cancel-text="Dismiss"  (ionChange)="onChange($event)">
+                <ion-select value="EUR" ok-text="Okay" cancel-text="Dismiss"  (ionChange)="onChange($event)">
                   
-                <div *ngFor="let iterate of dataService.rates | keyvalue">
-                  <ion-select-option value="{{iterate.key}}">{{iterate.key}}</ion-select-option>
-                  
-                </div>  
+                  <div *ngFor="let iterate of dataService.rates | keyvalue">
+                    <ion-select-option value="{{iterate.key}}">{{iterate.key}}</ion-select-option>
+                 </div>  
                 </ion-select>
-              </ion-item>
+            </ion-item>
         </ion-list-header>
         <ion-list-header>
             <b>Date : {{dataService.data?.date}}</b>
          </ion-list-header>
-        <ion-item *ngFor="let iterate of dataService.rates | keyvalue">
+        <ion-item class="basic1" *ngFor="let iterate of dataService.rates | keyvalue">
             <ion-thumbnail item-start>
-                <ion-img src="../../assets/images/{{iterate.key}}.png" with="100px" height="100px"></ion-img>
+              <ion-avatar>
+                <ion-img src="assets/images/{{iterate.key}}.png" width="100px" height="100px"></ion-img>
+              </ion-avatar>
             </ion-thumbnail> 
-          <ion-label >
+          <ion-label class="nextToThumbnail">
             <h2><b>{{iterate.key}} : {{iterate.value}}</b></h2>
           </ion-label>
         </ion-item>

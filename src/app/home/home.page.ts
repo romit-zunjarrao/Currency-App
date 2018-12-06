@@ -16,7 +16,8 @@ export class HomePage implements OnInit{
 
   onChange($event)
   {
-    console.log($event.target.value);
+    
+    
     this.choice = $event.target.value;
     this.dataService.getDataByBase(this.choice);
   }

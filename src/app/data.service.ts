@@ -13,7 +13,7 @@ export class DataService {
 
   getData()
   {
-    this.http.get('http://api.openrates.io/latest').subscribe(
+    this.http.get('https://api.openrates.io/latest').subscribe(
       (data:any)=>{ 
         this.data=data;
          this.rates=data.rates;
@@ -23,7 +23,8 @@ export class DataService {
 
   getDataByBase(choice)
   {
-    this.http.get('http://api.openrates.io/latest?base='+choice).subscribe(
+    this.data = null;
+    this.http.get('https://api.openrates.io/latest?base='+choice).subscribe(
       (data:any)=>{ 
         this.data=data;
          this.rates=data.rates;

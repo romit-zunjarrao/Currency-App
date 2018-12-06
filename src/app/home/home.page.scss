@@ -1,5 +1,60 @@
+//toolbar CSS
+.toolbar
+{
+ --background: var( --ion-gradient-color);
+ font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+ color: white;
+ 
+}
+
+//ion-spinner
 ion-spinner {
     position: fixed;
     top: 50%;
     left: 50%;
+  }
+
+  //ion-list-header
+  ion-list-header { 
+    --background: var(--ion-color-danger-tint);
+  }
+
+  //ion-select
+  ion-select {
+    width:200px;
+  }
+
+  //background images
+
+  ion-list{ background-image: url('../../assets/images/currency1.jpg');
+    background-repeat: no-repeat;
+    --backround: var(--ion-color-custom);
+    background-size:cover;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    
+  }
+  
+
+  //list-item
+.basic1{
+  margin-top:10px;
+ 
+  --background:var(--ion-color-secondary-tint);
+  animation:load 3s;
+  
+  
+}
+ 
+//country-name in ion-list
+.nextToThumbnail{ padding-left: 20px;}
+ion-list{
+  background-color:transparent;
+
+}
+ion-thumbnail { 
+  padding-bottom: 5px;
+}
+  @keyframes load{
+    from{opacity:0;}
+    to{opacity:1;}
   }
